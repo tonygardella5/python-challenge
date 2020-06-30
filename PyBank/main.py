@@ -3,7 +3,6 @@ import csv
 
 file = 'Resources/PyBank_Resources_budget_data.csv'
 file_out = 'analysis/analysis.txt'
-print(file)
 total_month = 0
 total_amount = 0
 total_change = 0
