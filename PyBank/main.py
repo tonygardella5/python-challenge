@@ -14,37 +14,37 @@ change_list = []
 with open(file, 'r') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
     next(csvfile)    
-    for row in csvreader:        
+    for row in csvreader:  #loads everything in      
         values.append(int(row[1]))
         dates.append(row[0])
         total_month = total_month + 1
-        total_amount = total_amount + int(row[1])
+        total_amount = total_amount + int(row[1]) #reads and stores .csv
     #before = values[0]
     #after = int(row[1]) 
     #print(values[1]-values[0])  
     for i in range(len(values)):
         if i > 0:
-            change_list.append(values[i]-values[i-1])
+            change_list.append(values[i]-values[i-1]) #creates a list of differences
     for i in range(len(change_list)):
-        total_change = total_change + change_list[i]
+        total_change = total_change + change_list[i] #creates average change numerator
 
     #changes = (after - before) / len(change_list)
-    changes = round(total_change / len(change_list), 2)
+    changes = round(total_change / len(change_list), 2) #average change with rounding
 
-    max_change = max(change_list)
-    min_change = min(change_list)
+    max_change = max(change_list) #finds max from change list
+    min_change = min(change_list) #finds min from change list
 
     for i in range(len(change_list)):
         if change_list[i] == max_change:
-            lookup_value_max = i
+            lookup_value_max = i    #loop to find i for max change
     for i in range(len(change_list)):
         if change_list[i] == min_change:
-            lookup_value_min = i
+            lookup_value_min = i    #loop to find i for min change
     #print(len(change_list))
     #print(len(dates))
-    max_date = dates[lookup_value_max + 1]
+    max_date = dates[lookup_value_max + 1] #match i to proper date
     #print(max_date)
-    min_date = dates[lookup_value_min + 1]
+    min_date = dates[lookup_value_min + 1] #match i to proper date
     print("Financial Analysis")
     print("----------------------------------")
     print(f"Total Months: {total_month}")
