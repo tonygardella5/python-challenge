@@ -5,7 +5,7 @@ first_votes=0
 second_votes=0 
 third_votes=0
 fourth_votes= 0
-county = []
+#county = []
 candidate = []
 file = 'Resources/PyPoll_Resources_election_data.csv'
 file_out = 'analysis/analysis.txt'
@@ -15,13 +15,13 @@ with open(file, 'r') as csvfile:
     next(csvfile)    
     for row in csvreader:
         total_votes = total_votes + 1        
-        county.append(row[1])
+        #county.append(row[1])
         candidate.append(row[2])
     #print(total_votes)
     #print(county)
     #print(candidate)
-    unique = set(candidate)
-    unique_list = (list(unique))
+    unique_list = list(set(candidate))
+    
     #print(unique_list)     
     for i in range(len(candidate)):
         if candidate[i] == unique_list[0]:
